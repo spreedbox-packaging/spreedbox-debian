@@ -1,0 +1,17 @@
+description "Periodically update mydyns IP"
+
+start on (started networking)
+
+env config=/etc/default/mydyns-update
+
+pre-start script
+[ -e "$config" ] || { stop; exit 0; }
+end script
+
+script
+while [ 1 ]
+do
+	/opt/spreedme-box/mydyns-update.sh
+	sleep 300
+done
+end script
