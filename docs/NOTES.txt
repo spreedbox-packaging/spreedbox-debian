@@ -15,10 +15,13 @@
     - miniupnpc
     - upnpc -a `ifconfig wlan0 | grep "inet addr" | cut -d : -f 2 | cut -d " " -f 1` 443 443 TCP
 
+  This also presents the problem of what port we should use. We either can
+  always use port 443, or use some high port by default (like. 32149 or
+  something). In any case, this port needs to be changeable during setup.
+
 ## Spreed WebRTC
 
-  Stock installation compiled for ARM, running with SSL certificate on
-  all IPs on port 443.
+  Stock installation compiled for ARM, running on localhost port 8080.
 
 ## SPI
 
