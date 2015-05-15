@@ -1,6 +1,6 @@
 description "Periodically update mydyns IP"
 
-start on (started networking)
+start on net-device-up
 
 env config=/etc/default/mydyns-update
 
@@ -12,6 +12,10 @@ script
 while [ 1 ]
 do
 	/opt/spreedme-box/mydyns-update.sh
-	sleep 300
+	if [ -f "/tmp/mydyns-update4" -o -f "/tmp/mydyns-update6" ]; then
+		sleep 300
+	else
+		sleep 5
+	fi
 done
 end script
