@@ -8,7 +8,7 @@ Standards-Version: 3.9.3
 Package: spreedbox
 Architecture: all
 Depends: 
- nginx (>= 1.6),
+ nginx-full (>= 1.6),
  spreedbox-base (= ${binary:Version}), 
  spreedbox-webrtc-extra (= ${binary:Version}), 
  spreedbox-mydyns-update  (= ${binary:Version}),
@@ -31,6 +31,7 @@ Architecture: all
 Depends: 
  ssl-cert,
  rng-tools,
+ libressl-apps,
  ${misc:Depends}
 Description: Firstboot scripts
  Spreedbox firstboot scripts
