@@ -1,14 +1,14 @@
 #!/bin/bash
 
-if [ ! -e /etc/default/spreed-box-mydyns-update ]; then
+if [ ! -e /etc/default/spreedbox-mydyns-update ]; then
 	exit 0
 fi
 
 # Defaults.
 TMP="/var/tmp"
-PREFIX="spreed-box-mydyns-update"
+PREFIX="spreedbox-mydyns-update"
 
-. /etc/default/spreed-box-mydyns-update
+. /etc/default/spreedbox-mydyns-update
 
 if [ -z "$HOST" ] || [ -z "$TOKEN" ]; then
 	exit 0
