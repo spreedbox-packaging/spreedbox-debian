@@ -1,0 +1,7 @@
+#!/bin/bash
+
+IP=`LC_ALL=C ifconfig | awk '/inet addr/{print substr($2,6)}' | grep -v 127. | head -n 1`
+
+if [ -n "$IP" ]; then
+	/usr/bin/dotstar-control ip4 $IP
+fi
