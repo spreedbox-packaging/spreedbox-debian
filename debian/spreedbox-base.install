@@ -1,1 +1,2 @@
 spreedbox-release /etc/
+ssl/ssleay.cnf /etc/spreed/

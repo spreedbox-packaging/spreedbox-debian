@@ -1,0 +1,19 @@
+#!/bin/bash
+
+DAYS=3650
+BITS=2048
+
+umask 077
+
+# Generate SSL key and self signed certificate.
+libressl-openssl req -new -x509 -nodes -newkey rsa:$BITS -keyout /etc/ssl/private/server.key -out /etc/ssl/certs/server.pem -days $DAYS -config /etc/spreed/ssleay.cnf -sha256 -extensions req_v3
+chmod 644 /etc/ssl/certs/server.pem
+chmod 640 /etc/ssl/private/server.key
+chown root:ssl-cert /etc/ssl/private/server.key
+libressl-openssl dhparam -out /etc/ssl/server-dhparam.pem $BITS
+chown root:ssl-cert /etc/ssl/server-dhparam.pem
+chmod 640 /etc/ssl/server-dhparam.pem
+
+# Restart service.
+invoke-rc.d nginx restart
+

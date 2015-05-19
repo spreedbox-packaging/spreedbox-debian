@@ -9,11 +9,10 @@ Package: spreedbox
 Architecture: all
 Depends: 
  nginx (>= 1.6),
- rng-tools,
- ssl-cert,
  spreedbox-base (= ${binary:Version}), 
  spreedbox-webrtc-extra (= ${binary:Version}), 
  spreedbox-mydyns-update  (= ${binary:Version}),
+ spreedbox-firstboot (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
  Description: Install Spreedbox
@@ -24,8 +23,17 @@ Depends:
  dnsmasq,
  logrotate,
  ${misc:Depends}
-Description: Meta package to install Spreedbox base dependencies.
- This is a meta package to install Spreedbox base dependencies.
+Description: Meta package to install Spreedbox base dependencies
+ This is a meta package to install Spreedbox base dependencies
+
+Package: spreedbox-firstboot
+Architecture: all
+Depends: 
+ ssl-cert,
+ rng-tools,
+ ${misc:Depends}
+Description: Firstboot scripts
+ Spreedbox firstboot scripts
 
 Package: spreedbox-webrtc-extra
 Architecture: all
@@ -43,3 +51,4 @@ Depends:
  ${misc:Depends}
 Description: Update mydyns dynamic DNS from the Spreedbox
  This package provides a update script to a Mydyns dynamic DNS service
+
