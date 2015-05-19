@@ -1,0 +1,4 @@
+# Add the host where mydynsd is running.
+HOST=
+# Add the token which should be used for updating.
+TOKEN=

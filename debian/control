@@ -1,0 +1,45 @@
+Source: spreedbox
+Section: utils
+Priority: extra
+Maintainer: Simon Eisenmann <simon@struktur.de>
+Build-Depends: debhelper, dpkg-dev (>= 1.16.1~)
+Standards-Version: 3.9.3
+
+Package: spreedbox
+Architecture: all
+Depends: 
+ nginx (>= 1.6),
+ rng-tools,
+ ssl-cert,
+ spreedbox-base (= ${binary:Version}), 
+ spreedbox-webrtc-extra (= ${binary:Version}), 
+ spreedbox-mydyns-update  (= ${binary:Version}),
+ ${misc:Depends}
+Description: Meta package to install Spreedbox
+ Description: Install Spreedbox
+
+Package: spreedbox-base
+Architecture: all
+Depends: 
+ dnsmasq,
+ logrotate,
+ ${misc:Depends}
+Description: Meta package to install Spreedbox base dependencies.
+ This is a meta package to install Spreedbox base dependencies.
+
+Package: spreedbox-webrtc-extra
+Architecture: all
+Depends: 
+ spreed-webrtc (>= 0.23.0), 
+ ${misc:Depends}
+Description: Spreedbox branding and plugin for Spreed WebRTC
+ This package provides the Spreed WebRTC web client plugin and branding
+ 
+Package: spreedbox-mydyns-update
+Architecture: all
+Depends: 
+ spreedbox-base (= ${binary:Version}),
+ curl,
+ ${misc:Depends}
+Description: Update mydyns dynamic DNS from the Spreedbox
+ This package provides a update script to a Mydyns dynamic DNS service
