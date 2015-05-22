@@ -4,8 +4,7 @@
 description "Spreedbox first boot"
 
 start on stopping firstboot
-
-task
+stop on runlevel [!2345]
 
 umask 077
 

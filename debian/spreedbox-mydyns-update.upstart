@@ -1,9 +1,10 @@
 description "Periodically update mydyns IP"
 
 start on net-device-up
+stop on runlevel [!2345]
 
 env config=/etc/default/spreedbox-mydyns-update
-evn updater=/opt/spreedbox/bin/mydyns-update
+env updater=/opt/spreedbox/bin/mydyns-update
 
 pre-start script
 [ -e "$config" ] || { stop; exit 0; }
