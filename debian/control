@@ -13,6 +13,7 @@ Depends:
  spreedbox-webrtc-extra (= ${binary:Version}), 
  spreedbox-mydyns-update  (= ${binary:Version}),
  spreedbox-firstboot (= ${binary:Version}),
+ spreedbox-leds (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
  Description: Install Spreedbox
@@ -52,4 +53,13 @@ Depends:
  ${misc:Depends}
 Description: Update mydyns dynamic DNS from the Spreedbox
  This package provides a update script to a Mydyns dynamic DNS service
+
+Package: spreedbox-leds
+Architecture: all
+Depends: 
+ spreedbox-base (= ${binary:Version}),
+ dotstar-leds (>= 0.0.2),
+ ${misc:Depends}
+Description: LED control for the Spreedbox
+ This package provides dotstar LED patters used by the Spreedbox
 

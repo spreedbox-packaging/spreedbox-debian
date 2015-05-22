@@ -1,0 +1,17 @@
+description "Spreedbox init LED state"
+
+start on net-device-up IFACE!=lo
+stop on runlevel [!2345]
+
+task
+
+start script
+    if [ -f /etc/spreed/box.conf ]
+    then
+        if [ ! -f /var/run/spreedbox-led ]; then
+            /usr/bin/dotstar-control spreed
+        fi
+    else
+        /opt/spreedbox/bin/blink-ip
+    fi
+end script
