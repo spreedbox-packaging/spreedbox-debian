@@ -2,3 +2,7 @@
 HOST=
 # Add the token which should be used for updating.
 TOKEN=
+
+# Runtime configuration.
+CACHE=/var/run/spreed/mydyns-update
+PREFIX=update
