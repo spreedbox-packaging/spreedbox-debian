@@ -1,3 +1,9 @@
+spreedbox (0.1.2) trusty; urgency=low
+
+  * Improved the upstart scripting.
+
+ -- Simon Eisenmann <longsleep@redemption.intranet.struktur.de>  Fri, 22 May 2015 18:30:44 +0200
+
 spreedbox (0.1.1) trusty; urgency=low
 
   * Only generate dhparam on firstboot if none are there.
