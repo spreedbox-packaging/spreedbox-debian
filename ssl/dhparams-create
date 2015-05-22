@@ -10,9 +10,9 @@ create () {
     chown root:ssl-cert $tmp
     chmod 640 $tmp
     mv -f $tmp /etc/ssl/dhparam.pem
-    ln -sfn dhparams.pem /etc/ssl/server-dhparam.pem
+    ln -sfn dhparam.pem /etc/ssl/server-dhparam.pem
     invoke-rc.d nginx restart
-    ln -sfn dhparams.pem /etc/ssl/dhparam-created.pem
+    ln -sfn dhparam.pem /etc/ssl/dhparam-created.pem
 }
 
 if [ ! -e /etc/ssl/dhparam-created.pem ]; then
