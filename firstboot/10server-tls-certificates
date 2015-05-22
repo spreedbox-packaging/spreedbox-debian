@@ -10,9 +10,13 @@ libressl-openssl req -new -x509 -nodes -newkey rsa:$BITS -keyout /etc/ssl/privat
 chmod 644 /etc/ssl/certs/server.pem
 chmod 640 /etc/ssl/private/server.key
 chown root:ssl-cert /etc/ssl/private/server.key
-libressl-openssl dhparam -out /etc/ssl/server-dhparam.pem $BITS
-chown root:ssl-cert /etc/ssl/server-dhparam.pem
-chmod 640 /etc/ssl/server-dhparam.pem
+
+# Generate DH params - this takes a very long time!
+if [ ! -e /etc/ssl/server-dhparam.pem ]; then
+	libressl-openssl dhparam -out /etc/ssl/server-dhparam.pem $BITS
+	chown root:ssl-cert /etc/ssl/server-dhparam.pem
+	chmod 640 /etc/ssl/server-dhparam.pem
+fi
 
 # Restart service.
 invoke-rc.d nginx restart
