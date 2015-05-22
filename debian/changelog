@@ -1,3 +1,11 @@
+spreedbox (0.1.1) trusty; urgency=low
+
+  * Only generate dhparam on firstboot if none are there.
+  * Ship with a default dhparam to avoid long first boot.
+  * Create new dhparam on boot when not already done so.
+
+ -- Simon Eisenmann <longsleep@redemption.intranet.struktur.de>  Fri, 22 May 2015 18:08:16 +0200
+
 spreedbox (0.1.0) trusty; urgency=low
 
   * Initial release.
