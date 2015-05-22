@@ -1,0 +1,17 @@
+# spreedbox-firstboot
+#   Runs long running first boot actions.
+
+description "Spreedbox first boot"
+
+start on stopping firstboot
+
+task
+
+umask 077
+
+script
+
+	# Create dhparam - this takes a very long time.
+	/opt/spreedbox/bin/dhparam-create
+
+end script
