@@ -13,11 +13,9 @@ chown root:ssl-cert /etc/ssl/private/server.key
 
 # Generate DH params - this takes a very long time!
 if [ ! -e /etc/ssl/server-dhparam.pem ]; then
-	libressl-openssl dhparam -out /etc/ssl/server-dhparam.pem $BITS
-	chown root:ssl-cert /etc/ssl/server-dhparam.pem
-	chmod 640 /etc/ssl/server-dhparam.pem
+	ln -sfn dhparam-factory.pem /etc/ssl/server-dhparam.pem
 fi
 
 # Restart service.
-invoke-rc.d nginx restart
+invoke-rc.d nginx reload
 

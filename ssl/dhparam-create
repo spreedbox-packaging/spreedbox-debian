@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+BITS=2048
+
+if [ ! -e /etc/ssl/dhparam.pem ]; then
+    libressl-openssl dhparam -out /etc/ssl/dhparam.pem $BITS
+    chown root:ssl-cert /etc/ssl/dhparam.pem
+    chmod 640 /etc/ssl/dhparam.pem
+    ln -sfn dhparams.pem /etc/ssl/server-dhparam.pem
+    invoke-rc.d nginx restart
+fi

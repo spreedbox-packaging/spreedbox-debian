@@ -1,1 +1,3 @@
 firstboot/* /etc/firstboot/firstboot.d/
+ssl/dhparam-create /opt/spreedbox/bin/
+ssl/dhparam-factory.pem /etc/ssl/
