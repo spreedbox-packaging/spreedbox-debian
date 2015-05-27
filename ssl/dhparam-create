@@ -4,10 +4,25 @@ set -e
 
 BITS=2048
 
-if [ ! -e /etc/ssl/dhparam.pem ]; then
-    libressl-openssl dhparam -out /etc/ssl/dhparam.pem $BITS
-    chown root:ssl-cert /etc/ssl/dhparam.pem
-    chmod 640 /etc/ssl/dhparam.pem
-    ln -sfn dhparams.pem /etc/ssl/server-dhparam.pem
+create () {
+    tmp="/tmp/dhparam.$$.pem"
+    libressl-openssl dhparam -out $tmp $BITS
+    chown root:ssl-cert $tmp
+    chmod 640 $tmp
+    mv -f $tmp /etc/ssl/dhparam.pem
+    ln -sfn dhparam.pem /etc/ssl/server-dhparam.pem
     invoke-rc.d nginx restart
+    ln -sfn dhparam.pem /etc/ssl/dhparam-created.pem
+}
+
+if [ ! -e /etc/ssl/dhparam-created.pem ]; then
+    create
+else
+    # Check the dhparam value.
+    if ($( libressl-openssl dhparam -in /etc/ssl/dhparam-created.pem -noout -check > /dev/null 2>&1 )) ; then
+        echo -n
+    else
+        create
+    fi
 fi
+
