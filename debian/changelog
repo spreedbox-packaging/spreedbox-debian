@@ -1,3 +1,10 @@
+spreedbox (0.1.5) trusty; urgency=low
+
+  * Fixed name of binary.
+  * Fixed comment.
+
+ -- Simon Eisenmann <simon@struktur.de>  Wed, 27 May 2015 11:09:08 +0200
+
 spreedbox (0.1.4) trusty; urgency=low
 
   * Fixed stanza.
