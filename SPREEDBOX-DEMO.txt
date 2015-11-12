@@ -1,0 +1,49 @@
+## Spreedbox demo
+
+## Wifi
+
+Auto joins wifi SSID `blah` with password `struktur` (DHCP).
+Make sure the Wifi hotspot is active before booting the
+Spreedbox.
+
+The Spreedbox will request the DNS name `spreedbox` from
+the DHCP server, so it is easy to access by using that
+name for all network requests.
+
+## Automatic LED 
+
+ - Spreedme blue color LED when ready.
+ - Red LED color when booting.
+ - Red blinking when starting services.
+
+## Spreedbox WebRTC web access
+
+  https://spreedbox/ 
+
+  The TLS certificate is self signed.
+
+## SSH access
+
+  ssh root@spreedbox 
+  Password: spreed
+
+## Controlling LED manually
+
+  The LEDs can be controlled manually by pre-defined
+  scripts in `/root/blink`. Connect by SSH and then
+  for example:
+
+    `/root/blink/incoming.call.sh`
+
+  The color will be applied permanently. Use the `idle.sh`
+  script to reset to idle status again.
+
+  Raw access to the dotstar socket, is provided through
+  the `dotstar-control` command. For usage see the existing
+  blink scripts.
+
+Last update: 12. Nov 2015
+
+-- (c)2015 struktur AG
+
+
