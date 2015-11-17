@@ -7,26 +7,26 @@ Standards-Version: 3.9.3
 
 Package: spreedbox
 Architecture: all
-Depends: 
- spreedbox-base (= ${binary:Version}), 
+Depends:
+ spreedbox-base (= ${binary:Version}),
  spreedbox-leds (= ${binary:Version}),
  spreedbox-rng (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
- Description: Install Spreedbox
+ Description: This a meta package to install Spreedbox components
 
 Package: spreedbox-base
 Architecture: all
-Depends: 
- dnsmasq,
- logrotate,
+Depends:
+ spreedbox-snapstore-policy,
+ libressl-apps,
  ${misc:Depends}
 Description: Meta package to install Spreedbox base dependencies
  This is a meta package to install Spreedbox base dependencies
 
 Package: spreedbox-leds
 Architecture: all
-Depends: 
+Depends:
  spreedbox-base (= ${binary:Version}),
  dotstar-leds (>= 0.0.2),
  ${misc:Depends}
@@ -35,7 +35,7 @@ Description: LED control for the Spreedbox
 
 Package: spreedbox-rng
 Architecture: all
-Depends: 
+Depends:
  spreedbox-base (= ${binary:Version}),
  rng-tools,
  ${misc:Depends}
