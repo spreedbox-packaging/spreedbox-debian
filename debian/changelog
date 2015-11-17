@@ -1,42 +1,7 @@
-spreedbox (0.1.5) trusty; urgency=low
+spreedbox (1.0.0) vivid; urgency=medium
 
-  * Fixed name of binary.
-  * Fixed comment.
+  * Create meta package for Snappy based image creation. 
 
- -- Simon Eisenmann <simon@struktur.de>  Wed, 27 May 2015 11:09:08 +0200
-
-spreedbox (0.1.4) trusty; urgency=low
-
-  * Fixed stanza.
-
- -- Simon Eisenmann <simon@struktur.de>  Fri, 22 May 2015 19:41:16 +0200
-
-spreedbox (0.1.3) trusty; urgency=low
-
-  * Fixed typo.
-  * Added example signaling.
-  * Added led stuff with examples.
-
- -- Simon Eisenmann <simon@struktur.de>  Fri, 22 May 2015 19:33:08 +0200
-
-spreedbox (0.1.2) trusty; urgency=low
-
-  * Improved the upstart scripting.
-
- -- Simon Eisenmann <simon@struktur.de>  Fri, 22 May 2015 18:30:44 +0200
-
-spreedbox (0.1.1) trusty; urgency=low
-
-  * Only generate dhparam on firstboot if none are there.
-  * Ship with a default dhparam to avoid long first boot.
-  * Create new dhparam on boot when not already done so.
-
- -- Simon Eisenmann <simon@struktur.de>  Fri, 22 May 2015 18:08:16 +0200
-
-spreedbox (0.1.0) trusty; urgency=low
-
-  * Initial release.
-
- -- Simon Eisenmann <simon@struktur.de>  Tue, 19 May 2015 14:38:41 +0200
+ -- Simon Eisenmann <simon@struktur.de>  Tue, 17 Nov 2015 10:05:02 +0100
 
 

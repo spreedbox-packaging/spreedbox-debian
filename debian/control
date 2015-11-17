@@ -8,12 +8,9 @@ Standards-Version: 3.9.3
 Package: spreedbox
 Architecture: all
 Depends: 
- nginx-full (>= 1.6),
  spreedbox-base (= ${binary:Version}), 
- spreedbox-webrtc-extra (= ${binary:Version}), 
- spreedbox-mydyns-update  (= ${binary:Version}),
- spreedbox-firstboot (= ${binary:Version}),
  spreedbox-leds (= ${binary:Version}),
+ spreedbox-rng (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
  Description: Install Spreedbox
@@ -27,33 +24,6 @@ Depends:
 Description: Meta package to install Spreedbox base dependencies
  This is a meta package to install Spreedbox base dependencies
 
-Package: spreedbox-firstboot
-Architecture: all
-Depends: 
- ssl-cert,
- rng-tools,
- libressl-apps,
- ${misc:Depends}
-Description: Firstboot scripts
- Spreedbox firstboot scripts
-
-Package: spreedbox-webrtc-extra
-Architecture: all
-Depends: 
- spreed-webrtc (>= 0.23.0), 
- ${misc:Depends}
-Description: Spreedbox branding and plugin for Spreed WebRTC
- This package provides the Spreed WebRTC web client plugin and branding
- 
-Package: spreedbox-mydyns-update
-Architecture: all
-Depends: 
- spreedbox-base (= ${binary:Version}),
- curl,
- ${misc:Depends}
-Description: Update mydyns dynamic DNS from the Spreedbox
- This package provides a update script to a Mydyns dynamic DNS service
-
 Package: spreedbox-leds
 Architecture: all
 Depends: 
@@ -62,4 +32,13 @@ Depends:
  ${misc:Depends}
 Description: LED control for the Spreedbox
  This package provides dotstar LED patters used by the Spreedbox
+
+Package: spreedbox-rng
+Architecture: all
+Depends: 
+ spreedbox-base (= ${binary:Version}),
+ rng-tools,
+ ${misc:Depends}
+Description: RNG for the Spreedbox
+ This package provides RNG support for the Spreedbox
 
