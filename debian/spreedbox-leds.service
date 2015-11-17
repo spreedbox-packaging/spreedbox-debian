@@ -1,0 +1,12 @@
+[Unit]
+Description=Spreedbox LEDs
+After=systemd-modules-load.service
+
+[Service]
+ExecStartPre=mkdir -p -m 0755 /var/run/dotstar
+ExecStart=/usr/sbin/dotstar /var/run/dotstar/control
+ExecStartPost=/usr/bin/dotstar-control blink-red-fast
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
