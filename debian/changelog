@@ -1,3 +1,9 @@
+spreedbox (1.0.3) vivid; urgency=medium
+
+  * Fixed LED systemd service to actually start. 
+
+ -- Simon Eisenmann <simon@struktur.de>  Tue, 17 Nov 2015 15:17:58 +0100
+
 spreedbox (1.0.2) vivid; urgency=medium
 
   * Added led systemd service. 
