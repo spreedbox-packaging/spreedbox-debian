@@ -42,3 +42,16 @@ Depends:
 Description: RNG for the Spreedbox
  This package provides RNG support for the Spreedbox
 
+Package: spreedbox-ubuntu
+Architecture: all
+Depends:
+ ${misc:Depends},
+ dotstar-leds (>= 0.0.2),
+ spreedbox-confd,
+ spreedbox-discoverd,
+ spreedbox-ledd,
+ spreedbox-networkd,
+ spreedbox-setup,
+ spreedbox-wland
+Description: Meta-package to install a Spreedbox on Ubuntu
+ This package installs all modules required to run a Spreedbox on Ubuntu.
