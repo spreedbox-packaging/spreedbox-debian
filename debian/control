@@ -76,6 +76,7 @@ Depends:
  spreedbox-failsafe-skip,
  spreedbox-ledd,
  spreedbox-networkd,
+ spreedbox-owncloud,
  spreedbox-setup,
  spreedbox-ttys0,
  spreedbox-wland
