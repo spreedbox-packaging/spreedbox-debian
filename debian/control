@@ -74,6 +74,7 @@ Depends:
  spreedbox-discoverd,
  spreedbox-entropy,
  spreedbox-failsafe-skip,
+ spreedbox-gnatsd,
  spreedbox-ledd,
  spreedbox-networkd,
  spreedbox-owncloud,
