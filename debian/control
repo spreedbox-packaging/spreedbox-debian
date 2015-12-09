@@ -69,7 +69,7 @@ Package: spreedbox-ubuntu
 Architecture: all
 Depends:
  ${misc:Depends},
- dotstar-leds (>= 0.0.2),
+ spreedbox,
  spreedbox-confd,
  spreedbox-discoverd,
  spreedbox-entropy,
