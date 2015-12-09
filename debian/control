@@ -42,6 +42,29 @@ Depends:
 Description: RNG for the Spreedbox
  This package provides RNG support for the Spreedbox
 
+Package: spreedbox-entropy
+Architecture: all
+Depends:
+ ${misc:Depends},
+ rng-tools
+Description: Service to ensure a system has entropy
+ This package installs a service to ensure a system has entropy.
+
+Package: spreedbox-failsafe-skip
+Architecture: all
+Depends:
+ ${misc:Depends},
+ upstart
+Description: Service to allow a failsafe boot.
+ This package installs a service to allow a failsafe boot.
+
+Package: spreedbox-ttys0
+Architecture: all
+Depends:
+ ${misc:Depends}
+Description: Service to maintain a getty on ttyS0
+ This package installs a service to maintain a getty on ttyS0.
+
 Package: spreedbox-ubuntu
 Architecture: all
 Depends:
@@ -49,9 +72,12 @@ Depends:
  dotstar-leds (>= 0.0.2),
  spreedbox-confd,
  spreedbox-discoverd,
+ spreedbox-entropy,
+ spreedbox-failsafe-skip,
  spreedbox-ledd,
  spreedbox-networkd,
  spreedbox-setup,
+ spreedbox-ttys0,
  spreedbox-wland
-Description: Meta-package to install a Spreedbox on Ubuntu
- This package installs all modules required to run a Spreedbox on Ubuntu.
+Description: Meta package to install a Spreedbox on Ubuntu
+ This meta package installs all modules required to run a Spreedbox on Ubuntu.

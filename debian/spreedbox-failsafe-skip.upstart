@@ -1,0 +1,12 @@
+# failsafe-skip
+
+description "Failsafe Boot Delay Skip"
+
+start on starting failsafe
+stop on static-network-up or starting rc-sysinit
+
+emits failsafe-boot
+
+script
+    exec initctl emit --no-wait failsafe-boot
+end script

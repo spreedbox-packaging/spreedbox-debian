@@ -1,0 +1,22 @@
+# entropy - Entropy check
+#   Waits until Kernel has enough entropy available.
+
+description "Entropy"
+
+start on mounted MOUNTPOINT=/
+
+task
+
+console output
+
+pre-start script
+	echo " * Waiting for entropy"
+	/etc/init.d/rng-tools start
+	dd if=/dev/urandom of=/dev/null bs=1024 count=10 2>/dev/null
+	while [ $(cat /proc/sys/kernel/random/entropy_avail) -le 200 ]; do sleep 1; done
+end script
+
+script
+	entropy=$(cat /proc/sys/kernel/random/entropy_avail)
+	echo " * Entropy is available now: $entropy bytes"
+end script
