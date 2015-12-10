@@ -81,6 +81,7 @@ Depends:
  spreedbox-owncloud,
  spreedbox-setup,
  spreedbox-ttys0,
+ spreedbox-webrtc,
  spreedbox-webserver,
  spreedbox-wland
 Description: Meta package to install a Spreedbox on Ubuntu
