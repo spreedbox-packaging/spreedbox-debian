@@ -1,3 +1,10 @@
+spreedbox (1.1.0) trusty; urgency=medium
+
+  * Removed obsolete packages and cleaned up old helpers and scripts.
+  * Added ODROIDC boot dependencies.
+
+ -- Simon Eisenmann <simon@struktur.de>  Tue, 26 Jan 2016 17:00:53 +0100
+
 spreedbox (1.0.11) trusty; urgency=low
 
   * Depend on "spreedbox-webrtc".
