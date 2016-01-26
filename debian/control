@@ -8,7 +8,8 @@ Standards-Version: 3.9.3
 Package: spreedbox
 Architecture: all
 Depends:
- spreedbox-base (= ${binary:Version}),
+  spreedbox-base (= ${binary:Version}),
+  spreedbox-base-odroidc (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
  Description: This a meta package to install Spreedbox components
@@ -21,6 +22,14 @@ Depends:
  ${misc:Depends}
 Description: Meta package to install Spreedbox base dependencies
  This is a meta package to install Spreedbox base dependencies
+
+Package: spreedbox-base-odroidc
+Architecture: all
+Depends:
+ spreedbox-odroidc-boot-linux,
+ ${misc:Depends}
+Description: Meta package to install Spreedbox base ODROIDC dependencies
+ This is a meta package to install Spreedbox base ODROIDC dependencies
 
 Package: spreedbox-entropy
 Architecture: all
@@ -49,7 +58,7 @@ Package: spreedbox-ubuntu
 Architecture: all
 Depends:
  ${misc:Depends},
- spreedbox,
+ spreedbox (= ${binary:Version}),
  spreedbox-confd,
  spreedbox-discoverd,
  spreedbox-entropy,
@@ -57,7 +66,6 @@ Depends:
  spreedbox-gnatsd,
  spreedbox-ledd,
  spreedbox-networkd,
- spreedbox-odroidc-bootini,
  spreedbox-owncloud,
  spreedbox-setup,
  spreedbox-ttys0,
