@@ -8,8 +8,7 @@ Standards-Version: 3.9.3
 Package: spreedbox
 Architecture: all
 Depends:
-  spreedbox-base (= ${binary:Version}),
-  spreedbox-base-odroidc (= ${binary:Version}),
+ spreedbox-base (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox
  Description: This a meta package to install Spreedbox components
@@ -17,16 +16,24 @@ Description: Meta package to install Spreedbox
 Package: spreedbox-base
 Architecture: all
 Depends:
- spreedbox-snapstore-policy,
  libressl-apps,
  ${misc:Depends}
 Description: Meta package to install Spreedbox base dependencies
  This is a meta package to install Spreedbox base dependencies
 
+Package: spreedbox-odroidc
+Architecture: all
+Depends:
+ spreedbox (= ${binary:Version}),
+ spreedbox-base-odroidc (= ${binary:Version}),
+ ${misc:Depends}
+Description: Meta package to install Spreedbox ODROIDC dependencies
+ This is a meta package to install Spreedbox ODROIDC dependencies
+
 Package: spreedbox-base-odroidc
 Architecture: all
 Depends:
- spreedbox-odroidc-boot-linux,
+ spreedbox-base (= ${binary:Version}),
  ${misc:Depends}
 Description: Meta package to install Spreedbox base ODROIDC dependencies
  This is a meta package to install Spreedbox base ODROIDC dependencies
@@ -44,7 +51,7 @@ Architecture: all
 Depends:
  ${misc:Depends},
  upstart
-Description: Service to allow a failsafe boot.
+Description: Service to allow a failsafe boot
  This package installs a service to allow a failsafe boot.
 
 Package: spreedbox-ttys0
@@ -57,8 +64,7 @@ Description: Service to maintain a getty on ttyS0
 Package: spreedbox-ubuntu
 Architecture: all
 Depends:
- ${misc:Depends},
- spreedbox (= ${binary:Version}),
+ spreedbox-ubuntu-odroidc (= ${binary:Version}),
  spreedbox-confd,
  spreedbox-discoverd,
  spreedbox-entropy,
@@ -71,6 +77,18 @@ Depends:
  spreedbox-ttys0,
  spreedbox-webrtc,
  spreedbox-webserver,
- spreedbox-wland
-Description: Meta package to install a Spreedbox on Ubuntu
- This meta package installs all modules required to run a Spreedbox on Ubuntu.
+ spreedbox-wland,
+ ${misc:Depends},
+Description: Meta package to install all Spreedbox components on Ubuntu
+ This meta package installs Spreedbox components on ubuntu.
+
+Package: spreedbox-ubuntu-odroidc
+Architecture: all
+Depends:
+ spreedbox-odroidc (= ${binary:Version}),
+ zram-config,
+ openntpd,
+ spreedbox-odroidc-boot-linux,
+ ${misc:Depends}
+Description: Meta package to install Spreedbox ODROIDC on Ubuntu
+ This meta package installs all components to run Spreedbox ODROIDC on Ubuntu.
