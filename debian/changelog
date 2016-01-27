@@ -1,3 +1,9 @@
+spreedbox (1.1.1) trusty; urgency=medium
+
+  * Improved packaging chains.
+
+ -- Simon Eisenmann <simon@struktur.de>  Wed, 27 Jan 2016 17:31:52 +0100
+
 spreedbox (1.1.0) trusty; urgency=medium
 
   * Removed obsolete packages and cleaned up old helpers and scripts.
