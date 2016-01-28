@@ -10,13 +10,17 @@ task
 console output
 
 pre-start script
-	echo " * Waiting for entropy"
-	/etc/init.d/rng-tools start
+	/etc/init.d/rng-tools start >/dev/null 2>&1
 	dd if=/dev/urandom of=/dev/null bs=1024 count=10 2>/dev/null
-	while [ $(cat /proc/sys/kernel/random/entropy_avail) -le 200 ]; do sleep 1; done
+	entropy=$(cat /proc/sys/kernel/random/entropy_avail)
+	while [ $entropy -le 50 ]; do
+		echo " * Waiting for entropy (got $entropy bytes) ..."
+		sleep 1
+		entropy=$(cat /proc/sys/kernel/random/entropy_avail)
+	done
+	echo " * Entropy check complete: $entropy bytes"
 end script
 
 script
-	entropy=$(cat /proc/sys/kernel/random/entropy_avail)
-	echo " * Entropy is available now: $entropy bytes"
+	echo " * Entropy check finished"
 end script
