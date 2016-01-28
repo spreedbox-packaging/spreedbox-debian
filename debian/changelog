@@ -1,3 +1,9 @@
+spreedbox (1.1.2) trusty; urgency=medium
+
+  * Improved entropy checker and reduced the entropy requirement, until /dev/hwrng is fixed with newer Kernel.
+
+ -- Simon Eisenmann <simon@struktur.de>  Thu, 28 Jan 2016 19:24:52 +0100
+
 spreedbox (1.1.1) trusty; urgency=medium
 
   * Improved packaging chains.
