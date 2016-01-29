@@ -65,7 +65,6 @@ Package: spreedbox-ubuntu
 Architecture: all
 Depends:
  logrotate,
- spreedbox-ubuntu-odroidc (= ${binary:Version}),
  spreedbox-confd,
  spreedbox-discoverd,
  spreedbox-entropy,
@@ -76,6 +75,7 @@ Depends:
  spreedbox-owncloud,
  spreedbox-setup,
  spreedbox-ttys0,
+ spreedbox-ubuntu-odroidc (= ${binary:Version}),
  spreedbox-webrtc,
  spreedbox-webserver,
  spreedbox-wland,
@@ -86,10 +86,10 @@ Description: Meta package to install all Spreedbox components on Ubuntu
 Package: spreedbox-ubuntu-odroidc
 Architecture: all
 Depends:
- spreedbox-odroidc (= ${binary:Version}),
- zram-config,
  openntpd,
+ spreedbox-odroidc (= ${binary:Version}),
  spreedbox-odroidc-boot-linux,
+ zram-config,
  ${misc:Depends}
 Description: Meta package to install Spreedbox ODROIDC on Ubuntu
  This meta package installs all components to run Spreedbox ODROIDC on Ubuntu.
