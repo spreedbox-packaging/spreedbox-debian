@@ -64,6 +64,7 @@ Description: Service to maintain a getty on ttyS0
 Package: spreedbox-ubuntu
 Architecture: all
 Depends:
+ logrotate,
  spreedbox-ubuntu-odroidc (= ${binary:Version}),
  spreedbox-confd,
  spreedbox-discoverd,
