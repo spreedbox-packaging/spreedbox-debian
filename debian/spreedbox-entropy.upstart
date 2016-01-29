@@ -10,15 +10,20 @@ task
 console output
 
 pre-start script
+	entropy_min=$(cat /proc/cmdline | awk -v RS=" " '/^spreedbox.entropy.min=/ {print substr($0,23)}')
+	if [ -z "$entropy_min" ]; then
+		entropy_min=2000
+		echo " * Using default minimal entropy: $entropy_min bit"
+	fi
 	/etc/init.d/rng-tools start >/dev/null 2>&1
 	dd if=/dev/urandom of=/dev/null bs=1024 count=10 2>/dev/null
 	entropy=$(cat /proc/sys/kernel/random/entropy_avail)
-	while [ $entropy -le 50 ]; do
-		echo " * Waiting for entropy (got $entropy bytes) ..."
+	while [ $entropy -le $entropy_min ]; do
+		echo " * Waiting for entropy (got $entropy bit) ..."
 		sleep 1
 		entropy=$(cat /proc/sys/kernel/random/entropy_avail)
 	done
-	echo " * Entropy check complete: $entropy bytes"
+	echo " * Entropy check complete: $entropy bit"
 end script
 
 script
