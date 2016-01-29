@@ -1,3 +1,10 @@
+spreedbox (1.1.4) trusty; urgency=low
+
+  * Also install logrotate.
+  * Sort dependencies.
+
+ -- Joachim Bauch <bauch@struktur.de>  Fri, 29 Jan 2016 15:17:37 +0100
+
 spreedbox (1.1.3) trusty; urgency=medium
 
   * Added support for spreedbox.entropy.min Kernel parameter to define minimal required entropy in bits and use 2000 as a default when Kernel parameter is not specified.
