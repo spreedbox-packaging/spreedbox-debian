@@ -1,3 +1,9 @@
+spreedbox (1.1.3) trusty; urgency=medium
+
+  * Added support for spreedbox.entropy.min Kernel parameter to define minimal required entropy in bits and use 2000 as a default when Kernel parameter is not specified.
+
+ -- Simon Eisenmann <simon@struktur.de>  Fri, 29 Jan 2016 11:11:40 +0100
+
 spreedbox (1.1.2) trusty; urgency=medium
 
   * Improved entropy checker and reduced the entropy requirement, until /dev/hwrng is fixed with newer Kernel.
