@@ -73,6 +73,7 @@ Depends:
  spreedbox-ledd,
  spreedbox-networkd,
  spreedbox-owncloud,
+ spreedbox-servicecontrold,
  spreedbox-setup,
  spreedbox-ttys0,
  spreedbox-ubuntu-odroidc (= ${binary:Version}),
