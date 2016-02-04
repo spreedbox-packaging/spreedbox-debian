@@ -1,0 +1,12 @@
+start on starting spreedbox-entropy
+stop on runlevel [016]
+
+task
+
+console output
+
+pre-start script
+	initctl start spreedbox-rng || failed="${failed} spreedbox-rng "
+end script
+
+exec true

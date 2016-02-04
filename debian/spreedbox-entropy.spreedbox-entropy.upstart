@@ -9,30 +9,23 @@ task
 
 console output
 
-script
+pre-start script
 	entropy_min=$(cat /proc/cmdline | awk -v RS=" " '/^spreedbox.entropy.min=/ {print substr($0,23)}')
 	if [ -z "$entropy_min" ]; then
 		entropy_min=2000
-		logger -s -t spreedbox-entropy "using default minimal entropy: $entropy_min bit"
+		echo " * Using default minimal entropy: $entropy_min bit"
 	fi
+	/etc/init.d/rng-tools start >/dev/null 2>&1
 	dd if=/dev/urandom of=/dev/null bs=1024 count=10 2>/dev/null
 	entropy=$(cat /proc/sys/kernel/random/entropy_avail)
-	counter=1
-	extra=""
 	while [ $entropy -le $entropy_min ]; do
-		logger -s -t spreedbox-entropy "waiting for entropy (got $entropy bit) ..."
+		echo " * Waiting for entropy (got $entropy bit) ..."
 		sleep 1
 		entropy=$(cat /proc/sys/kernel/random/entropy_avail)
-		if [ $counter -lt 10 ]; then
-			counter=$((counter + 1))
-		else
-			if [ -z "$extra" ]; then
-				logger -s -t spreedbox-entropy "spawning extra entropy source ..."
-				initctl emit --no-wait spreedbox-entropy-extra
-				extra=1
-			fi
-		fi
 	done
-	logger -s -t spreedbox-entropy "entropy check complete: $entropy bit"
-	initctl emit spreedbox-entropy
+	echo " * Entropy check complete: $entropy bit"
+end script
+
+script
+	echo " * Entropy check finished"
 end script

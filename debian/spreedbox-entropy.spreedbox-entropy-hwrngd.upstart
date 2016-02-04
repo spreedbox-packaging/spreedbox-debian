@@ -1,0 +1,16 @@
+start on spreedbox-entropy-extra
+stop on runlevel [016]
+
+env DEVICE=/dev/hwrng
+
+console log
+
+respawn
+respawn limit unlimited
+
+pre-start script
+    test -c $DEVICE || { stop; exit 0; }
+    mkdir -p $(dirname /var/run/rngd/spreedbox-entropy-hwrngd)
+end script
+
+exec rngd --foreground --pid-file=/var/run/rngd/spreedbox-entropy-hwrngd -W 2048 --no-drng=1 --no-tpm=1 -r $DEVICE

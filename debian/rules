@@ -4,3 +4,9 @@ include /usr/share/dpkg/default.mk
 
 %:
 	dh $@ --with=systemd
+
+override_dh_installinit:
+	dh_installinit
+	dh_installinit --name=spreedbox-entropy --no-start
+	dh_installinit --name=spreedbox-entropy-rng --no-start
+	dh_installinit --name=spreedbox-entropy-hwrngd --no-start

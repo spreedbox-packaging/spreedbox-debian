@@ -42,7 +42,8 @@ Package: spreedbox-entropy
 Architecture: all
 Depends:
  ${misc:Depends},
- rng-tools
+ spreedbox-rng,
+ rng-tools (>= 5)
 Description: Service to ensure a system has entropy
  This package installs a service to ensure a system has entropy.
 
@@ -67,7 +68,7 @@ Depends:
  logrotate,
  spreedbox-confd,
  spreedbox-discoverd,
- spreedbox-entropy,
+ spreedbox-entropy (= ${binary:Version}),
  spreedbox-failsafe-skip,
  spreedbox-gnatsd,
  spreedbox-ledd,
