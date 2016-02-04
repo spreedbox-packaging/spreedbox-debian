@@ -91,7 +91,6 @@ Depends:
  openntpd,
  spreedbox-odroidc (= ${binary:Version}),
  spreedbox-odroidc-boot-linux,
- watchdog,
  zram-config,
  ${misc:Depends}
 Description: Meta package to install Spreedbox ODROIDC on Ubuntu
