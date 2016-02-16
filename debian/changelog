@@ -1,3 +1,9 @@
+spreedbox (1.2.1) trusty; urgency=low
+
+  * Always install "spreedbox-letsencrypt".
+
+ -- Joachim Bauch <bauch@struktur.de>  Tue, 16 Feb 2016 14:50:49 +0100
+
 spreedbox (1.2.0) trusty; urgency=medium
 
   * Integrated with Spreedbox RNG package.
