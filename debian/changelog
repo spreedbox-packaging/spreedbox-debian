@@ -1,3 +1,10 @@
+spreedbox (1.2.2) trusty; urgency=low
+
+  * Also depend on "spreedbox-usbmount".
+  * The readme should be markdown.
+
+ -- Joachim Bauch <bauch@struktur.de>  Wed, 24 Feb 2016 17:53:49 +0100
+
 spreedbox (1.2.1) trusty; urgency=low
 
   * Always install "spreedbox-letsencrypt".
