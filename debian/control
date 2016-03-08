@@ -66,6 +66,7 @@ Package: spreedbox-ubuntu
 Architecture: all
 Depends:
  logrotate,
+ spreedbox-authd,
  spreedbox-confd,
  spreedbox-discoverd,
  spreedbox-entropy (= ${binary:Version}),
