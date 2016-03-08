@@ -1,3 +1,9 @@
+spreedbox (1.2.3) trusty; urgency=medium
+
+  * Also depend on spreedbox-authd.
+
+ -- Simon Eisenmann <simon@struktur.de>  Tue, 08 Mar 2016 13:59:37 +0100
+
 spreedbox (1.2.2) trusty; urgency=low
 
   * Also depend on "spreedbox-usbmount".
