@@ -1,3 +1,9 @@
+spreedbox (1.2.4) trusty; urgency=low
+
+  * Don't start service if device does not exist (should fix FS#3480).
+
+ -- Joachim Bauch <bauch@struktur.de>  Wed, 16 Mar 2016 10:09:53 +0100
+
 spreedbox (1.2.3) trusty; urgency=medium
 
   * Also depend on spreedbox-authd.
