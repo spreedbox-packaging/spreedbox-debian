@@ -7,4 +7,11 @@ start on stopped rc or RUNLEVEL=[12345]
 stop on runlevel [!12345]
 
 respawn
-exec /sbin/getty -L 115200 ttyS0 vt102
+
+pre-start script
+    test -e /dev/ttyS0 || { stop; exit 0; }
+end script
+
+script
+    exec /sbin/getty -L 115200 ttyS0 vt102
+end script
