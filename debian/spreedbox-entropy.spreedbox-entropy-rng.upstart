@@ -1,4 +1,4 @@
-start on starting spreedbox-entropy
+start on spreedbox-fpga-initialized
 stop on runlevel [016]
 
 task
