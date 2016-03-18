@@ -3,7 +3,7 @@
 
 description "Entropy check"
 
-start on mounted MOUNTPOINT=/
+start on spreedbox-fpga-initialized
 
 task
 
