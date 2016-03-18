@@ -3,7 +3,7 @@
 
 description "Entropy check"
 
-start on spreedbox-fpga-initialized
+start on mounted MOUNTPOINT=/
 
 task
 
@@ -23,7 +23,7 @@ pre-start script
 		logger -s -t spreedbox-entropy "waiting for entropy (got $entropy bit) ..."
 		sleep 1
 		entropy=$(cat /proc/sys/kernel/random/entropy_avail)
-		if [ $counter -lt 10 ]; then
+		if [ $counter -lt 15 ]; then
 			counter=$((counter + 1))
 		else
 			if [ -z "$extra" ]; then
