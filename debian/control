@@ -76,7 +76,7 @@ Depends:
  spreedbox-ledd,
  spreedbox-letsencrypt,
  spreedbox-networkd,
- spreedbox-owncloud,
+ spreedbox-nextcloud | spreedbox-owncloud,
  spreedbox-servicecontrold,
  spreedbox-setup,
  spreedbox-ttys0,
