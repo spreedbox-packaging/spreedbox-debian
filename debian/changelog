@@ -1,3 +1,9 @@
+spreedbox (2.0.2) trusty; urgency=medium
+
+  * Mark package as Standard to get migration right
+
+ -- Simon Eisenmann <simon@struktur.de>  Fri, 15 Jul 2016 11:22:54 +0200
+
 spreedbox (2.0.1) trusty; urgency=medium
 
   * Remove ownCloud in favor of Nextcloud
