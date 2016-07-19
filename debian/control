@@ -68,6 +68,8 @@ Description: Service to maintain a getty on ttyS0
 
 Package: spreedbox-ubuntu
 Architecture: all
+Pre-Depends:
+ spreedbox-upgrade-helper
 Depends:
  logrotate,
  spreedbox-authd,
@@ -91,6 +93,11 @@ Depends:
  ${misc:Depends},
 Description: Meta package to install all Spreedbox components on Ubuntu
  This meta package installs Spreedbox components on ubuntu.
+
+Package: spreedbox-upgrade-helper
+Architecture: all
+Description: Meta package to help with Spreedbox upgrades
+ This meta package helps to upgrades the Spreedbox via packaging.
 
 Package: spreedbox-ubuntu-odroidc
 Architecture: all
