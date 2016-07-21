@@ -21,6 +21,10 @@ case "$1" in
         if [ -e "/var/lib/dpkg/info/owncloud-server.postrm" ]; then
             sed -i 's/^    upgrade/    remove|upgrade/g' /var/lib/dpkg/info/owncloud-server.postrm
         fi
+        # Fix missing triggered in spreedbox-ownloud which gets triggered on ownCloud removal.
+        if [ -e "/var/lib/dpkg/info/spreedbox-owncloud.postinst" ]; then
+            sed -i 's/^  abort-upgrade/  triggered|abort-upgrade/g' /var/lib/dpkg/info/spreedbox-owncloud.postinst
+        fi
     ;;
 
     abort-upgrade)
