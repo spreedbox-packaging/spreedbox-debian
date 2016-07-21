@@ -1,3 +1,9 @@
+spreedbox (2.0.4) trusty; urgency=medium
+
+  * Use preinst for upgrade helper
+
+ -- Simon Eisenmann <simon@struktur.de>  Thu, 21 Jul 2016 12:47:24 +0200
+
 spreedbox (2.0.3) trusty; urgency=medium
 
   * Introduce upgrade helper
