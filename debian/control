@@ -109,3 +109,11 @@ Depends:
  ${misc:Depends}
 Description: Meta package to install Spreedbox ODROIDC on Ubuntu
  This meta package installs all components to run Spreedbox ODROIDC on Ubuntu.
+
+Package: spreedbox-proprietary-repository
+Architecture: all
+Depends:
+ ${misc:Depends}
+Description: Meta package to activate the proprietary Spreedbox repository
+ This meta package activates the proprietary Spreedbox repository which allows
+ installing proprietary packages which are distributed without source code.
