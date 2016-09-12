@@ -89,6 +89,7 @@ Depends:
  spreedbox-usbmount,
  spreedbox-webrtc,
  spreedbox-webserver,
+ spreedbox-wlanctl,
  spreedbox-wland,
  ${misc:Depends},
 Description: Meta package to install all Spreedbox components on Ubuntu
