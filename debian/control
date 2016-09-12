@@ -97,6 +97,8 @@ Description: Meta package to install all Spreedbox components on Ubuntu
 
 Package: spreedbox-upgrade-helper
 Architecture: all
+Depends:
+ ${misc:Depends}
 Description: Meta package to help with Spreedbox upgrades
  This meta package helps to upgrades the Spreedbox via packaging.
 
