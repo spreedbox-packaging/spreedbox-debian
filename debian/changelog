@@ -1,3 +1,9 @@
+spreedbox (2.0.6) trusty; urgency=medium
+
+  * Always install "spreedbox-wlanctl" with "spreedbox-ubuntu" (FS#3821).
+
+ -- Joachim Bauch <bauch@struktur.de>  Mon, 12 Sep 2016 16:48:08 +0200
+
 spreedbox (2.0.5) trusty; urgency=medium
 
   * Fix triggered of spreedbox-owncloud
