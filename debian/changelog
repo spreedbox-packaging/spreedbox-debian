@@ -1,3 +1,9 @@
+spreedbox (2.1.0) trusty; urgency=medium
+
+  * Add mailbox
+
+ -- Simon Eisenmann <simon@struktur.de>  Thu, 22 Sep 2016 14:22:07 +0200
+
 spreedbox (2.0.6) trusty; urgency=medium
 
   * Always install "spreedbox-wlanctl" with "spreedbox-ubuntu" (FS#3821).
