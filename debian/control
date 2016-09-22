@@ -80,6 +80,7 @@ Depends:
  spreedbox-gnatsd,
  spreedbox-ledd,
  spreedbox-letsencrypt,
+ spreedbox-mailbox,
  spreedbox-networkd,
  spreedbox-nextcloud,
  spreedbox-servicecontrold,
