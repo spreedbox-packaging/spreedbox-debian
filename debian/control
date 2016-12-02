@@ -86,6 +86,7 @@ Depends:
  spreedbox-servicecontrold,
  spreedbox-setup,
  spreedbox-ttys0,
+ spreedbox-turn,
  spreedbox-ubuntu-odroidc (= ${binary:Version}),
  spreedbox-usbmount,
  spreedbox-webrtc,
