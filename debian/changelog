@@ -1,3 +1,9 @@
+spreedbox (2.2.1) trusty; urgency=medium
+
+  * Also install "avahi-daemon".
+
+ -- Joachim Bauch <bauch@struktur.de>  Fri, 17 Mar 2017 08:38:52 +0100
+
 spreedbox (2.2.0) trusty; urgency=medium
 
   * Always install "spreedbox-turn".
