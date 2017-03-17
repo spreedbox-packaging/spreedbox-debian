@@ -71,6 +71,7 @@ Architecture: all
 Pre-Depends:
  spreedbox-upgrade-helper
 Depends:
+ avahi-daemon,
  logrotate,
  spreedbox-authd,
  spreedbox-confd,
