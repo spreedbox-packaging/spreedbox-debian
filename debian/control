@@ -94,6 +94,7 @@ Depends:
  spreedbox-webserver,
  spreedbox-wlanctl,
  spreedbox-wland,
+ spreedbox-xmpp,
  ${misc:Depends},
 Description: Meta package to install all Spreedbox components on Ubuntu
  This meta package installs Spreedbox components on ubuntu.
