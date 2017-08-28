@@ -41,12 +41,18 @@ set_default_ciphers() {
 	if [ "$(get_config_option Ciphers)" = "" ]; then
 		set_config_option Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
 	fi
+	if [ "$(get_config_option KexAlgorithms)" = "" ]; then
+		set_config_option KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+	fi
+	if [ "$(get_config_option MACs)" = "" ]; then
+		set_config_option MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+	fi
 }
 
 if [ "$action" = configure ]; then
 	if [ -f /etc/ssh/sshd_config ]; then
 		# Only allow strong ciphers by default.
-		if dpkg --compare-versions "$oldversion" lt 2.3.1; then
+		if dpkg --compare-versions "$oldversion" lt 2.3.2; then
 			set_default_ciphers
 		fi
 		invoke-rc.d ssh reload || true
