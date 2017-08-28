@@ -1,3 +1,9 @@
+spreedbox (2.3.1) trusty; urgency=medium
+
+  * Only allow strong SSH ciphers by default.
+
+ -- Joachim Bauch <bauch@struktur.de>  Mon, 28 Aug 2017 10:02:30 +0200
+
 spreedbox (2.3.0) trusty; urgency=medium
 
   * Also install XMPP support.
