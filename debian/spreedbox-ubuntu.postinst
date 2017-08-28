@@ -1,0 +1,56 @@
+#!/bin/sh
+set -e
+
+action="$1"
+oldversion="$2"
+
+get_config_option() {
+	option="$1"
+
+	[ -f /etc/ssh/sshd_config ] || return
+
+	# TODO: actually only one '=' allowed after option
+	perl -lne 's/\s+/ /g; print if s/^\s*'"$option"'[[:space:]=]+//i' \
+		/etc/ssh/sshd_config
+}
+
+set_config_option() {
+	option="$1"
+	value="$2"
+
+	perl -le '
+		$option = $ARGV[0]; $value = $ARGV[1]; $done = 0;
+		while (<STDIN>) {
+			chomp;
+			(my $match = $_) =~ s/\s+/ /g;
+			if ($match =~ s/^\s*\Q$option\E\s+.*/$option $value/) {
+				$_ = $match;
+				$done = 1;
+			}
+			print;
+		}
+		print "$option $value" unless $done;' \
+		"$option" "$value" \
+		< /etc/ssh/sshd_config > /etc/ssh/sshd_config.dpkg-new
+	chown --reference /etc/ssh/sshd_config /etc/ssh/sshd_config.dpkg-new
+	chmod --reference /etc/ssh/sshd_config /etc/ssh/sshd_config.dpkg-new
+	mv /etc/ssh/sshd_config.dpkg-new /etc/ssh/sshd_config
+}
+
+set_default_ciphers() {
+	if [ "$(get_config_option Ciphers)" = "" ]; then
+		set_config_option Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+	fi
+}
+
+if [ "$action" = configure ]; then
+	if [ -f /etc/ssh/sshd_config ]; then
+		# Only allow strong ciphers by default.
+		if dpkg --compare-versions "$oldversion" lt 2.3.1; then
+			set_default_ciphers
+		fi
+		invoke-rc.d ssh reload || true
+	fi
+fi
+
+#DEBHELPER#
