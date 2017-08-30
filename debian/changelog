@@ -1,3 +1,9 @@
+spreedbox (2.3.4) trusty; urgency=medium
+
+  * Update ciphers if upgrading from before 2.3.4
+
+ -- Joachim Bauch <bauch@struktur.de>  Wed, 30 Aug 2017 10:38:04 +0200
+
 spreedbox (2.3.3) trusty; urgency=medium
 
   * Add cipher options after first blank line (fixes FS#4373).
