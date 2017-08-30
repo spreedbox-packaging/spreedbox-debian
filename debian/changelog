@@ -1,3 +1,9 @@
+spreedbox (2.3.3) trusty; urgency=medium
+
+  * Add cipher options after first blank line (fixes FS#4373).
+
+ -- Joachim Bauch <bauch@struktur.de>  Wed, 30 Aug 2017 10:34:56 +0200
+
 spreedbox (2.3.2) trusty; urgency=medium
 
   * Also set more secure "KexAlgorithms" and "MACs" by default.
