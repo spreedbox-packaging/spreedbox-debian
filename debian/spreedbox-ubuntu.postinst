@@ -29,7 +29,7 @@ set_default_ciphers() {
 if [ "$action" = configure ]; then
 	if [ -f /etc/ssh/sshd_config ]; then
 		# Only allow strong ciphers by default.
-		if dpkg --compare-versions "$oldversion" lt 2.3.2; then
+		if dpkg --compare-versions "$oldversion" lt 2.3.4; then
 			set_default_ciphers
 		fi
 		invoke-rc.d ssh reload || true
