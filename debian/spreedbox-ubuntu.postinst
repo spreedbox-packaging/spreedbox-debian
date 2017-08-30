@@ -14,38 +14,15 @@ get_config_option() {
 		/etc/ssh/sshd_config
 }
 
-set_config_option() {
-	option="$1"
-	value="$2"
-
-	perl -le '
-		$option = $ARGV[0]; $value = $ARGV[1]; $done = 0;
-		while (<STDIN>) {
-			chomp;
-			(my $match = $_) =~ s/\s+/ /g;
-			if ($match =~ s/^\s*\Q$option\E\s+.*/$option $value/) {
-				$_ = $match;
-				$done = 1;
-			}
-			print;
-		}
-		print "$option $value" unless $done;' \
-		"$option" "$value" \
-		< /etc/ssh/sshd_config > /etc/ssh/sshd_config.dpkg-new
-	chown --reference /etc/ssh/sshd_config /etc/ssh/sshd_config.dpkg-new
-	chmod --reference /etc/ssh/sshd_config /etc/ssh/sshd_config.dpkg-new
-	mv /etc/ssh/sshd_config.dpkg-new /etc/ssh/sshd_config
-}
-
 set_default_ciphers() {
 	if [ "$(get_config_option Ciphers)" = "" ]; then
-		set_config_option Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+		sed -i '0,/^$/ s/^$/\nCiphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr\n/' /etc/ssh/sshd_config
 	fi
 	if [ "$(get_config_option KexAlgorithms)" = "" ]; then
-		set_config_option KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256
+		sed -i '/Ciphers/aKexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256' /etc/ssh/sshd_config
 	fi
 	if [ "$(get_config_option MACs)" = "" ]; then
-		set_config_option MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com
+		sed -i '/KexAlgorithms/aMACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,umac-128@openssh.com' /etc/ssh/sshd_config
 	fi
 }
 
