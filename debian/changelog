@@ -1,3 +1,9 @@
+spreedbox (2.3.5) trusty; urgency=medium
+
+  * Add dependency on "spreedbox-keyring".
+
+ -- Joachim Bauch <bauch@struktur.de>  Mon, 20 Nov 2017 10:30:06 +0100
+
 spreedbox (2.3.4) trusty; urgency=medium
 
   * Update ciphers if upgrading from before 2.3.4
