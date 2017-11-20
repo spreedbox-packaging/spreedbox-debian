@@ -79,6 +79,7 @@ Depends:
  spreedbox-entropy (= ${binary:Version}),
  spreedbox-failsafe-skip,
  spreedbox-gnatsd,
+ spreedbox-keyring,
  spreedbox-ledd,
  spreedbox-letsencrypt,
  spreedbox-mailbox,
